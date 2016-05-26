@@ -1,111 +1,119 @@
-/*li12_1.c*/
 #include<stdio.h>
 #include<stdlib.h>
 #include"file.h"
-#include"student.h"
-
-void printHead( )      /*´òÓ¡Ñ§ÉúĞÅÏ¢µÄ±íÍ·*/
-{
-printf("%8s%10s%8s%6s%6s%8s%6s%6s\n","Ñ§ºÅ","ĞÕÃû","ĞÔ±ğ","ÊıÑ§","Ó¢Óï","¼ÆËã»ú","×Ü·Ö","Ãû´Î");
+#include"book.h"
+void printHead()       /*´òÓ¡Í¼ÊéĞÅÏ¢±íÍ·*/
+{ 
+	printf("%4s%4s%10s%10s%3s%5s%5s\n","ÊéÃû"£¬"±àºÅ"£¬"×÷Õß"£¬"³ö°æÉç"£¬"¼Û¸ñ"£¬"ËÑË÷Á¿"£¬"½èÔÄÁ¿");
 }
-
-void menu( )         /*¶¥²ã²Ëµ¥º¯Êı*/
+void triangle()    /*»¨Ñù*/
 {
-		printf("******** 1. ÏÔÊ¾»ù±¾ĞÅÏ¢ ********\n");
-		printf("******** 2. »ù±¾ĞÅÏ¢¹ÜÀí ********\n");
-		printf("******** 3. Ñ§Éú³É¼¨¹ÜÀí ********\n");
-		printf("******** 4. ¿¼ÊÔ³É¼¨Í³¼Æ ********\n");
-     printf("******** 5. ¸ù¾İÌõ¼ş²éÑ¯ ********\n");
-		printf("******** 0. ÍË³ö         ********\n");
+	int i,j;
+	for(i=1;i<=5;i++)
+	{
+		for(j=1;j<=35-i;j++)
+		{
+			printf(" ");
+		}
+		for(j=1;j<=2*i-1;j++)
+		{
+			printf("*");
+		}
+		printf("\n");
+	}
 }
-
-void menuBase( )     /*2¡¢»ù±¾ĞÅÏ¢¹ÜÀí²Ëµ¥º¯Êı*/
+void menu()         /*¶¥²ã²Ëµ¥º¯Êı*/
 {
-		printf("%%%%%%%% 1. ²åÈëÑ§Éú¼ÇÂ¼ %%%%%%%%\n");
-		printf("%%%%%%%% 2. É¾³ıÑ§Éú¼ÇÂ¼ %%%%%%%%\n");
-		printf("%%%%%%%% 3. ĞŞ¸ÄÑ§Éú¼ÇÂ¼ %%%%%%%%\n");
-		printf("%%%%%%%% 0. ·µ»ØÉÏ²ã²Ëµ¥ %%%%%%%%\n");
+		printf("                          Í¼ Êé ¹Ü Àí Ïµ Í³ \n");
+		printf("                        1. ÏÔ Ê¾ Í¼ Êé ĞÅ Ï¢ \n");
+		printf("                        2. »ù ±¾ ĞÅ Ï¢ ¹Ü Àí \n");
+		printf("                        3. Í¼ Êé ¼Û ¸ñ Í³ ¼Æ \n");
+		printf("                        4. ½è ÔÄ Á¿ Í³ ¼Æ \n");
+		printf("                        5. ¸ù ¾İ Ìõ ¼ş ²é Ñ¯ \n");
+		printf("                        0. ÍË ³ö         \n");
 }
-
-void menuScore( )     /*3¡¢Ñ§Éú³É¼¨¹ÜÀí²Ëµ¥º¯Êı*/
+void menuBase()   /*Í¼ÊéĞÅÏ¢¹ÜÀí²Ëµ¥º¯Êı*/
 {
-		printf("@@@@@@@@ 1. ¼ÆËãÑ§Éú×Ü·Ö @@@@@@@@\n");
-		printf("@@@@@@@@ 2. ¸ù¾İ×Ü·ÖÅÅÃû @@@@@@@@\n");
-		printf("@@@@@@@@ 0. ·µ»ØÉÏ²ã²Ëµ¥ @@@@@@@@\n");
+		printf("                        1. ²å Èë Í¼ Êé ¼Ç Â¼ \n");
+		printf("                        2. É¾ ³ı Í¼ Êé ¼Ç Â¼ \n");
+		printf("                        3. ĞŞ ¸Ä Í¼ Êé ¼Ç Â¼ \n");
+		printf("                        0. ·µ »Ø ÉÏ ²ã ²Ë µ¥ \n");
 }
- 
-void menuCount( )    /*4¡¢¿¼ÊÔ³É¼¨Í³¼Æ²Ëµ¥º¯Êı*/
+void menuPrice()   /*Í¼Êé¼Û¸ñ¹ÜÀí²Ëµ¥º¯Êı*/
 {
-		printf("&&&&&&&& 1. Çó¿Î³Ì×î¸ß·Ö &&&&&&&&\n");
-		printf("&&&&&&&& 2. Çó¿Î³Ì×îµÍ·Ö &&&&&&&&\n");
-		printf("&&&&&&&& 3. Çó¿Î³ÌÆ½¾ù·Ö &&&&&&&&\n");
-		printf("&&&&&&&& 0. ·µ»ØÉÏ²ã²Ëµ¥ &&&&&&&&\n");
+		printf("                        1. ¼Æ Ëã Í¼ Êé ×Ü ¼Û \n");
+		printf("                        2. ¼Æ Ëã Í¼ Êé Æ½ ¾ù ¼Û ¸ñ \n");
+		printf("                        0. ·µ »Ø ÉÏ ²ã ²Ë µ¥ \n");
 }
-
-void menuSearch()    /*5¡¢¸ù¾İÌõ¼ş²éÑ¯²Ëµ¥º¯Êı*/
+void menuCount()   /*½èÔÄÁ¿Í³¼Æ²Ëµ¥º¯Êı*/
 {
-		printf("######## 1. °´Ñ§ºÅ²éÑ¯   ########\n");
-		printf("######## 2. °´ĞÕÃû²éÑ¯   ########\n");
-		printf("######## 3. °´Ãû´Î²éÑ¯   ########\n");
-		printf("######## 0. ·µ»ØÉÏ²ã²Ëµ¥ ########\n");
+		printf("                        1. ×î ¸ß ½è ÔÄ Á¿ \n");
+		printf("                        2. ×î µÍ ½è ÔÄ Á¿ \n");
+		printf("                        3. Æ½ ¾ù ½è ÔÄ Á¿ \n");
+		printf("                        0. ·µ »Ø ÉÏ ²ã ²Ë µ¥ \n");
 }
-
-int baseManage(Student stu[],int n)    	     /*¸Ãº¯ÊıÍê³É»ù±¾ĞÅÏ¢¹ÜÀí*/
-/*°´Ñ§ºÅ½øĞĞ²åÈëÉ¾³ıĞŞ¸Ä£¬Ñ§ºÅ²»ÄÜÖØ¸´*/
+void menuSearch()    /*¸ù¾İÌõ¼ş²éÑ¯²Ëµ¥º¯Êı*/
+{
+		printf("                        1. °´ Êé Ãû ²é Ñ¯ \n");
+		printf("                        2. °´ ±à ºÅ ²é Ñ¯ \n");
+		printf("                        3. °´ ×÷ Õß ²é Ñ¯ \n");
+		printf("                        4. °´ ³ö °æ Éç ²é Ñ¯ \n");
+		printf("                        0. ·µ »Ø ÉÏ ²ã ²Ë µ¥ \n");
+}
+int baseManage(Bookr boo[],int n)    	     /*¸Ãº¯ÊıÍê³ÉÍ¼ÊéĞÅÏ¢¹ÜÀí*/
+/*°´±àºÅ½øĞĞ²åÈëÉ¾³ıĞŞ¸Ä£¬±àºÅ²»ÄÜÖØ¸´*/
 {  
-		int choice,t,find[NUM];
-     Student s;
-do
-	    {   
-menuBase( );                  /*ÏÔÊ¾¶ÔÓ¦µÄ¶ş¼¶²Ëµ¥*/
-printf("choose one operation you want to do:\n");
-		     scanf("%d",&choice);	          /*¶ÁÈëÑ¡Ïî*/
-		     switch(choice)
-		     {
-			   case 1:	 readStu(&s,1);       /*¶ÁÈëÒ»Ìõ´ı²åÈëµÄÑ§Éú¼ÇÂ¼*/
-					 n=insertStu(stu,n,s);   /*µ÷ÓÃº¯Êı²åÈëÑ§Éú¼ÇÂ¼*/
+	int choice,t,find[NUM];
+	Book b;
+	do
+	{   
+		menuBase( );                  /*ÏÔÊ¾¶ÔÓ¦µÄ¶ş¼¶²Ëµ¥*/
+		printf("choose one operation you want to do:\n");
+		scanf("%d",&choice);	          /*¶ÁÈëÑ¡Ïî*/
+		switch(choice)
+		{
+			 case 1:	 readBoo(&b,1);       /*¶ÁÈëÒ»Ìõ´ı²åÈëµÄÍ¼ÊéĞÅÏ¢*/
+					 n=insertBoo(boo,n,b);   /*µ÷ÓÃº¯Êı²åÈëÍ¼ÊéĞÅÏ¢*/
 					 break;
-			   case 2:  printf("Input the number deleted\n");
-					 scanf("%ld",&s.num);  /*¶ÁÈëÒ»¸ö´ıÉ¾³ıµÄÑ§ÉúÑ§ºÅ*/
-					 n=deleteStu(stu,n,s);   /*µ÷ÓÃº¯ÊıÉ¾³ıÖ¸¶¨Ñ§ºÅµÄÑ§Éú¼ÇÂ¼*/
+			 case 2:  printf("Input the number deleted\n");
+					 scanf("%ld",&b.num);  /*¶ÁÈëÒ»¸ö´ıÉ¾³ıµÄÍ¼Êé±àºÅ*/
+					 n=deleteBoo(boo,n,b);   /*µ÷ÓÃº¯ÊıÉ¾³ıÖ¸¶¨±àºÅµÄÍ¼ÊéĞÅÏ¢*/
 					 break;
-			   case 3:  printf("Input the number modified\n");
-					 scanf("%ld",&s.num);  /*¶ÁÈëÒ»¸ö´ıĞŞ¸ÄµÄÑ§ÉúÑ§ºÅ*/
-				      t=searchStu(stu,n,s,1,find) ; /*µ÷ÓÃº¯Êı²éÕÒÖ¸¶¨Ñ§ºÅµÄÑ§Éú¼ÇÂ¼*/
-				      if (t)                 /*Èç¹û¸ÃÑ§ºÅµÄ¼ÇÂ¼´æÔÚ*/
-					 {
-						  readStu(&s,1);   /*¶ÁÈëÒ»ÌõÍêÕûµÄÑ§Éú¼ÇÂ¼ĞÅÏ¢*/
-					      stu[find[0]]=s;    /*½«¸Õ¶ÁÈëµÄ¼ÇÂ¼¸³Öµ¸øĞèÒªĞŞ¸ÄµÄÊı×é¼ÇÂ¼*/ 					 
+			 case 3:  printf("Input the number modified\n");
+					 scanf("%ld",&b.num);  /*¶ÁÈëÒ»¸ö´ıĞŞ¸ÄµÄÍ¼Êé±àºÅ*/
+				      t=searchBoo(boo,n,b,1,find) ; /*µ÷ÓÃº¯Êı²éÕÒÖ¸¶¨±àºÅµÄÍ¼Êé¼ÇÂ¼*/
+					  if (t)                 /*Èç¹û¸Ã±àºÅµÄ¼ÇÂ¼´æÔÚ*/
+			  		 {
+						  readBoo(&b,1);   /*¶ÁÈëÒ»ÌõÍêÕûµÄÍ¼ÊéĞÅÏ¢*/
+					      boo[find[0]]=b;    /*½«¸Õ¶ÁÈëµÄ¼ÇÂ¼¸³Öµ¸øĞèÒªĞŞ¸ÄµÄÊı×é¼ÇÂ¼*/ 					 
 					  }					 
-					 else                 /*Èç¹û¸ÃÑ§ºÅµÄ¼ÇÂ¼²»´æÔÚ*/ 
- printf("this student is not in,can not be modified.\n"); /*Êä³öÌáÊ¾ĞÅÏ¢*/
+					 else                 /*Èç¹û¸Ã±àºÅµÄ¼ÇÂ¼²»´æÔÚ*/ 
+		             printf("this book is not in,can not be modified.\n"); /*Êä³öÌáÊ¾ĞÅÏ¢*/
 					 break;
-			    case 0: break;
-		    }
+			         case 0: break;
+		   }
 	}while(choice);
 return n;                             /*·µ»Øµ±Ç°²Ù×÷½áÊøºóµÄÊµ¼Ê¼ÇÂ¼ÌõÊı*/
 }
-
-void scoreManage(Student stu[],int n)          /*¸Ãº¯ÊıÍê³ÉÑ§Éú³É¼¨¹ÜÀí¹¦ÄÜ*/
+void priceManage(Book b[],int n)          /*¸Ãº¯ÊıÍê³ÉÍ¼Êé¼Û¸ñÍ³¼Æ¹¦ÄÜ*/
 {  
 	int choice;
 	do
 	{
-		menuScore( );                        /*ÏÔÊ¾¶ÔÓ¦µÄ¶ş¼¶²Ëµ¥*/
+		menuPrice( );                        /*ÏÔÊ¾¶ÔÓ¦µÄ¶ş¼¶²Ëµ¥*/
 		printf("choose one operation you want to do:\n");
 		scanf("%d",&choice);	                 /*¶ÁÈë¶ş¼¶Ñ¡Ïî*/
 		switch(choice)
 		{
-			case 1:   calcuTotal(stu,n);         /*ÇóËùÓĞÑ§ÉúµÄ×Ü·Ö*/
+			case 1:   calcuTotal(boo,n);    
 					  break;
-			case 2:   calcuRank(stu,n);         /*¸ù¾İËùÓĞÑ§ÉúµÄ×Ü·ÖÅÅÃû´Î*/
+			case 2:   calcuRank(boo,n);        
 				      break;		
 			case 0:   break;
 		}
 	}while(choice);
 }
-
-void printMarkCourse(char *s,double m[3][3],int k)   /*´òÓ¡·ÖÊıÍ¨ÓÃº¯Êı£¬±»countManage µ÷ÓÃ*/
+void printMarkCourse(char *b,double m[3][3],int k)   /*´òÓ¡·ÖÊıÍ¨ÓÃº¯Êı£¬±»countManage µ÷ÓÃ*/
 {                 /*ĞÎÊ½²ÎÊık´ú±íÊä³ö²»Í¬µÄÄÚÈİ£¬0¡¢1¡¢2·Ö±ğ¶ÔÓ¦×î¸ß·Ö¡¢×îµÍ·Ö¡¢Æ½¾ù·Ö*/
 int i;
     printf(s);                                  /*ÕâÀïµÄs´«ÈëµÄÊÇÊä³ö·ÖÊıµÄÌáÊ¾ĞÅÏ¢*/
@@ -113,34 +121,32 @@ int i;
 		  printf("%10.2lf",m[i][k]);
 	   printf("\n");
 }
-
-void countManage(Student stu[],int n)               /*¸Ãº¯ÊıÍê³É¿¼ÊÔ³É¼¨Í³¼Æ¹¦ÄÜ*/
+void countManage(Book boo[],int n)               /*¸Ãº¯ÊıÍê³É½èÔÄÁ¿Í³¼Æ¹¦ÄÜ*/
 {
 		int choice;
 		double mark[3][3];
 		do
 		{
 			menuCount( );                        /*ÏÔÊ¾¶ÔÓ¦µÄ¶ş¼¶²Ëµ¥*/
-			calcuMark(mark,stu,n);                 /*µ÷ÓÃ´Ëº¯ÊıÇóÈıÃÅ¿ÎµÄ×î¸ß¡¢×îµÍ¡¢Æ½¾ùÖµ*/
+			calcuMark(mark,stu,n);                 /*µ÷ÓÃ´Ëº¯ÊıÇóÁ½Êı¾İµÄ×î¸ß¡¢×îµÍ¡¢Æ½¾ùÖµ*/
 			printf("choose one operation you want to do:\n");
 			scanf("%d",&choice);
 			switch(choice)
 			{
-				case 1:   printMarkCourse("ÈıÃÅ¿ÎµÄ×î¸ß·Ö·Ö±ğÊÇ:\n",mark,0);  /*Êä³ö×î¸ß·Ö*/
+				case 1:   printMarkCourse("Á½Êı¾İµÄ×î¸ß·Ö±ğÊÇ:\n",mark,0);  /*Êä³ö×î¸ß*/
 				      break;
-				case 2:   printMarkCourse("ÈıÃÅ¿ÎµÄ×îµÍ·Ö·Ö±ğÊÇ:\n",mark,1);  /*Êä³ö×îµÍ·Ö*/
+				case 2:   printMarkCourse("Á½Êı¾İµÄ×îµÍ·Ö±ğÊÇ:\n",mark,1);  /*Êä³ö×îµÍ*/
 				      break;
-				case 3:   printMarkCourse("ÈıÃÅ¿ÎµÄÆ½¾ù·Ö·Ö±ğÊÇ:\n",mark,2);  /*Êä³öÆ½¾ù·Ö*/
+				case 3:   printMarkCourse("Á½Êı¾İµÄÆ½¾ù·Ö±ğÊÇ:\n",mark,2);  /*Êä³öÆ½¾ù*/
 				      break;
 				case 0:   break;
 			}
 		}while (choice);
 }
-
-void searchManage(Student stu[],int n)               /*¸Ãº¯ÊıÍê³É¸ù¾İÌõ¼ş²éÑ¯¹¦ÄÜ*/
+void searchManage(Book boo[],int n)               /*¸Ãº¯ÊıÍê³É¸ù¾İÌõ¼ş²éÑ¯¹¦ÄÜ*/
 {
     int i,choice,findnum,f[NUM];
-Student s;
+Book b;
 	   do
 {
 			menuSearch( );                         /*ÏÔÊ¾¶ÔÓ¦µÄ¶ş¼¶²Ëµ¥*/
@@ -148,25 +154,28 @@ Student s;
 			scanf("%d",&choice);
 			switch(choice)
 			{
-				case 1:   printf("Input a student\'s num will be searched:\n");
-				      scanf("%ld",&s.num);         /*ÊäÈë´ı²éÑ¯Ñ§ÉúµÄÑ§ºÅ*/
+				case 1:   printf("Input a book\'s num will be searched:\n");
+				      scanf("%ld",&b.num);         /*ÊäÈë´ı²éÑ¯Í¼ÊéµÄ±àºÅ*/
 					  break;
-				case 2:   printf("Input a student\'s name will be searched:\n");
-				      scanf("%s",s.name);	          /*ÊäÈë´ı²éÑ¯Ñ§ÉúµÄĞÕÃû*/		  
+				case 2:   printf("Input a book\'s title will be searched:\n");
+				      scanf("%c",&b.title);	          /*ÊäÈë´ı²éÑ¯Í¼ÊéµÄÊéÃû*/		  
 				      break;   
-				case 3:   printf("Input a rank will be searched:\n");
-				      scanf("%d",&s.rank);          /*ÊäÈë´ı²éÑ¯Ñ§ÉúµÄÃû´Î*/
+				case 3:   printf("Input a author will be searched:\n");
+				      scanf("%c",&b.author);          /*ÊäÈë´ı²éÑ¯Í¼ÊéµÄ×÷Õß*/
+					  break;
+				case 4:   printf("Input a company will be searched:\n");
+					  scanf("%c",&b.company);		/*ÊäÈë´ı²éÑ¯Í¼ÊéµÄ³ö°æÉç*/
 					  break;
 				case 0:   break;
 			}
-		 	if (choice>=1&&choice<=3)
+		 	if (choice>=1&&choice<=4)		
 			{ 
-				findnum=searchStu(stu,n,s,choice,f);    /*²éÕÒµÄ·ûºÏÌõ¼şÔªËØµÄÏÂ±ê´æÓÚfÊı×éÖĞ*/
+				findnum=searchBoo(boo,n,b,choice,f);    /*²éÕÒµÄ·ûºÏÌõ¼şÔªËØµÄÏÂ±ê´æÓÚfÊı×éÖĞ*/
 				if (findnum)				     /*Èç¹û²éÕÒ³É¹¦*/
 				{
 			   		 printHead( );                  /*´òÓ¡±íÍ·*/
 					 for (i=0;i<findnum;i++)         /*Ñ­»·¿ØÖÆfÊı×éµÄÏÂ±ê*/
-	      	 printStu(&stu[f[i]],1);      /*Ã¿´ÎÊä³öÒ»Ìõ¼ÇÂ¼*/
+	      	 printBoo(&boo[f[i]],1);      /*Ã¿´ÎÊä³öÒ»Ìõ¼ÇÂ¼*/
 				}
 		    		else
 			    	    printf("this record does not exist!\n"); /*Èç¹û²éÕÒ²»µ½ÔªËØ£¬ÔòÊä³öÌáÊ¾ĞÅÏ¢*/
@@ -174,21 +183,21 @@ Student s;
 	    }while (choice);
 }
 
-int runMain(Student stu[],int n,int choice)    /*Ö÷¿ØÄ£¿é£¬¶ÔÓ¦ÓÚÒ»¼¶²Ëµ¥ÆäÏÂ¸÷¹¦ÄÜÑ¡ÔñÖ´ĞĞ*/
+int runMain(Book boo[],int n,int choice)    /*Ö÷¿ØÄ£¿é£¬¶ÔÓ¦ÓÚÒ»¼¶²Ëµ¥ÆäÏÂ¸÷¹¦ÄÜÑ¡ÔñÖ´ĞĞ*/
 {
 		switch(choice)
 		{
 			case 1: printHead( );           /* 1. ÏÔÊ¾»ù±¾ĞÅÏ¢*/
-				 sortStu(stu,n,1);         /*°´Ñ§ºÅÓÉĞ¡µ½´óµÄË³ĞòÅÅĞò¼ÇÂ¼*/ 
-          	 printStu(stu,n);          /*°´Ñ§ºÅÓÉĞ¡µ½´óµÄË³ĞòÊä³öËùÓĞ¼ÇÂ¼*/
+				 sortSBoo(boo,n,1);         /*°´±àºÅÓÉĞ¡µ½´óµÄË³ĞòÅÅĞò¼ÇÂ¼*/ 
+          	 printBoo(boo,n);          /*°´±àºÅÓÉĞ¡µ½´óµÄË³ĞòÊä³öËùÓĞ¼ÇÂ¼*/
 					break;
-			case 2: n=baseManage(stu,n);    /* 2. »ù±¾ĞÅÏ¢¹ÜÀí*/
+			case 2: n=baseManage(boo,n);    /* 2. »ù±¾ĞÅÏ¢¹ÜÀí*/
 			   	     break;
-			case 3: scoreManage(stu,n);     /* 3. Ñ§Éú³É¼¨¹ÜÀí*/
+			case 3: priceManage(boo,n);     /* 3. Í¼Êé¼Û¸ñ¹ÜÀí*/
 					break;
-			case 4: countManage(stu,n);     /* 4. ¿¼ÊÔ³É¼¨Í³¼Æ*/
+			case 4: countManage(boo,n);     /* 4. ½èÔÄÁ¿Í³¼Æ*/
 					break;
-			case 5: searchManage(stu,n);     /* 5. ¸ù¾İÌõ¼ş²éÑ¯*/
+			case 5: searchManage(boo,n);     /* 5. ¸ù¾İÌõ¼ş²éÑ¯*/
 				     break;
           case 0: break;
 		}
@@ -197,12 +206,12 @@ int runMain(Student stu[],int n,int choice)    /*Ö÷¿ØÄ£¿é£¬¶ÔÓ¦ÓÚÒ»¼¶²Ëµ¥ÆäÏÂ¸÷¹
 
 int main( )
 {
-		Student stu[NUM];                /*¶¨ÒåÊµ²ÎÒ»Î¬Êı×é´æ´¢Ñ§Éú¼ÇÂ¼*/
+		Book boo[NUM];                /*¶¨ÒåÊµ²ÎÒ»Î¬Êı×é´æ´¢Í¼Êé¼ÇÂ¼*/
       int choice,n;
-	 n=readFile(stu);                  /*Ê×ÏÈ¶ÁÈ¡ÎÄ¼ş£¬¼ÇÂ¼ÌõÊı·µ»Ø¸³Öµ¸øn*/
+	 n=readFile(boo);                  /*Ê×ÏÈ¶ÁÈ¡ÎÄ¼ş£¬¼ÇÂ¼ÌõÊı·µ»Ø¸³Öµ¸øn*/
 	 if (!n)                          /*Èç¹ûÔ­À´µÄÎÄ¼şÎª¿Õ*/
 	     {
-		    n=createFile(stu);              /*ÔòÊ×ÏÈÒª½¨Á¢ÎÄ¼ş£¬´Ó¼üÅÌÉÏ¶ÁÈëÒ»ÏµÁĞ¼ÇÂ¼´æÓÚÎÄ¼ş*/
+		    n=createFile(boo);              /*ÔòÊ×ÏÈÒª½¨Á¢ÎÄ¼ş£¬´Ó¼üÅÌÉÏ¶ÁÈëÒ»ÏµÁĞ¼ÇÂ¼´æÓÚÎÄ¼ş*/
 }	 	 
 	do
 	     {
@@ -210,11 +219,11 @@ int main( )
 	         printf("Please input your choice: ");
 	         scanf("%d",&choice);
 	         if (choice>=0&&choice<=5)
-	              n=runMain(stu,n,choice);    /*Í¨¹ıµ÷ÓÃ´Ëº¯Êı½øĞĞÒ»¼¶¹¦ÄÜÏîµÄÑ¡ÔñÖ´ĞĞ*/
+	              n=runMain(boo,n,choice);    /*Í¨¹ıµ÷ÓÃ´Ëº¯Êı½øĞĞÒ»¼¶¹¦ÄÜÏîµÄÑ¡ÔñÖ´ĞĞ*/
 	         else 
 		          printf("error input,please input your choice again!\n");
 	} while (choice);
-	sortStu(stu,n,1);                   /*´æÈëÎÄ¼şÇ°°´Ñ§ºÅÓÉĞ¡µ½´óÅÅĞò*/ 
-	     saveFile(stu,n);                   /*½«½á¹û´æÈëÎÄ¼ş*/
+	sortBoo(boo,n,1);                   /*´æÈëÎÄ¼şÇ°°´Ñ§ºÅÓÉĞ¡µ½´óÅÅĞò*/ 
+	     saveFile(boo,n);                   /*½«½á¹û´æÈëÎÄ¼ş*/
       return 0;
 }
